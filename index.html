@@ -14,13 +14,12 @@
       --bg: #020617;
       --bg-soft: #020617;
       --card: #020818;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.16);
-      --accent-strong: #4ade80;
+      --accent: #14b8a6; /* teal */
+      --accent-soft: rgba(20, 184, 166, 0.16);
+      --accent-strong: #2dd4bf;
       --text: #f9fafb;
       --muted: #9ca3af;
       --border: #1f2937;
-      --danger: #f97373;
     }
 
     * {
@@ -30,10 +29,12 @@
     }
 
     body {
+      margin: 0;
+      padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
       background:
-        radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
+        radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
       color: var(--text);
       min-height: 100vh;
     }
@@ -46,7 +47,7 @@
     .page {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 1.5rem clamp(1.2rem, 4vw, 2.5rem) 2.5rem;
+      padding: 0 clamp(1.2rem, 4vw, 2.5rem) 2.5rem; /* no top padding */
     }
 
     /* HEADER */
@@ -56,7 +57,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 1.25rem;
-      margin-bottom: 2.25rem;
+      margin: 0 0 1.75rem 0;
+      padding-top: 0.4rem;
     }
 
     .brand {
@@ -70,7 +72,7 @@
       height: 42px;
       border-radius: 999px;
       background:
-        radial-gradient(circle at 30% 20%, #4ade80, #16a34a);
+        radial-gradient(circle at 30% 20%, #22d3ee, #0d9488);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -78,8 +80,8 @@
       font-size: 1.15rem;
       color: #022c22;
       box-shadow:
-        0 0 0 2px rgba(74, 222, 128, 0.4),
-        0 16px 40px rgba(15, 118, 110, 0.6);
+        0 0 0 2px rgba(45, 212, 191, 0.5),
+        0 16px 40px rgba(8, 47, 73, 0.9);
     }
 
     .brand-text {
@@ -116,9 +118,9 @@
     }
 
     nav a:hover {
-      border-color: rgba(148, 163, 184, 0.6);
+      border-color: rgba(45, 212, 191, 0.7);
       color: var(--text);
-      background: rgba(15, 23, 42, 0.88);
+      background: rgba(15, 23, 42, 0.95);
     }
 
     @media (max-width: 768px) {
@@ -151,15 +153,15 @@
 
     .hero {
       background:
-        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.18), transparent 55%),
-        radial-gradient(circle at 100% 0, rgba(74, 222, 128, 0.14), transparent 50%),
+        radial-gradient(circle at 0 0, rgba(45, 212, 191, 0.2), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.16), transparent 50%),
         linear-gradient(to bottom right, #020617, #020617);
       border-radius: 1.5rem;
       border: 1px solid var(--border);
-      padding: 1.75rem 1.6rem 1.6rem;
+      padding: 1.6rem 1.6rem 1.5rem;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.9);
+      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.95);
     }
 
     .hero::before {
@@ -167,9 +169,9 @@
       position: absolute;
       inset: -40%;
       background:
-        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.22), transparent 52%),
-        radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.19), transparent 50%);
-      opacity: 0.75;
+        radial-gradient(circle at 0 0, rgba(45, 212, 191, 0.25), transparent 52%),
+        radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.2), transparent 50%);
+      opacity: 0.85;
       pointer-events: none;
     }
 
@@ -183,7 +185,7 @@
       align-items: center;
       gap: 0.4rem;
       padding: 0.25rem 0.7rem;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.85);
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.6);
       font-size: 0.78rem;
@@ -203,7 +205,7 @@
     }
 
     h1 span.highlight {
-      background: linear-gradient(120deg, #38bdf8, #4ade80, #2dd4bf);
+      background: linear-gradient(120deg, #22d3ee, #2dd4bf, #38bdf8);
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -254,12 +256,11 @@
       border: none;
       outline: none;
       background:
-        radial-gradient(circle at 10% 0, #4ade80, #22c55e);
+        radial-gradient(circle at 10% 0, #22d3ee, #0f766e);
       font-size: 0.9rem;
       font-weight: 600;
-      color: #052e16;
-      box-shadow:
-        0 14px 45px rgba(34, 197, 94, 0.7);
+      color: #022c22;
+      box-shadow: 0 14px 45px rgba(8, 47, 73, 0.9);
       cursor: default;
       display: inline-flex;
       align-items: center;
@@ -276,7 +277,7 @@
       gap: 0.4rem;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.96);
       padding: 0.55rem 1.05rem;
       font-size: 0.85rem;
       color: var(--muted);
@@ -301,13 +302,13 @@
 
     .card {
       background:
-        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.2), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(74, 222, 128, 0.18), transparent 52%),
+        radial-gradient(circle at 0 0, rgba(20, 184, 166, 0.2), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.18), transparent 52%),
         var(--card);
       border-radius: 1.3rem;
       border: 1px solid var(--border);
       padding: 1.25rem 1.2rem 1.3rem;
-      box-shadow: 0 20px 52px rgba(15, 23, 42, 0.95);
+      box-shadow: 0 20px 52px rgba(15, 23, 42, 0.98);
     }
 
     .card-label {
@@ -336,7 +337,7 @@
       border-radius: 999px;
       background: var(--accent-soft);
       color: #e0f2fe;
-      border: 1px solid rgba(56, 189, 248, 0.7);
+      border: 1px solid rgba(20, 184, 166, 0.7);
     }
 
     .card-body {
@@ -357,7 +358,7 @@
       padding: 0.2rem 0.6rem;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.45);
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.96);
       color: #e5e7eb;
     }
 
@@ -372,10 +373,10 @@
       height: 68px;
       border-radius: 0.85rem;
       background:
-        linear-gradient(135deg, rgba(15, 23, 42, 1), rgba(30, 64, 175, 0.75)),
-        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.3), transparent 55%);
+        linear-gradient(135deg, rgba(15, 23, 42, 1), rgba(15, 118, 110, 0.85)),
+        radial-gradient(circle at 0 0, rgba(45, 212, 191, 0.4), transparent 55%);
       border: 1px solid rgba(15, 23, 42, 0.9);
-      opacity: 0.92;
+      opacity: 0.95;
     }
 
     .meta-grid {
@@ -399,18 +400,19 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-top: 0.8rem;
+      margin-top: 0.75rem;
     }
 
     .store-badge {
       border-radius: 0.7rem;
-      border: 1px dashed rgba(148, 163, 184, 0.6);
+      border: 1px dashed rgba(148, 163, 184, 0.7);
       padding: 0.5rem 0.7rem;
       font-size: 0.78rem;
       display: flex;
       align-items: center;
       gap: 0.4rem;
       color: var(--muted);
+      background: rgba(15, 23, 42, 0.96);
     }
 
     .store-badge span.icon {
@@ -418,7 +420,7 @@
     }
 
     .note-badge {
-      margin-top: 0.3rem;
+      margin-top: 0.35rem;
       font-size: 0.74rem;
       color: var(--muted);
     }
@@ -426,7 +428,7 @@
     /* SECTION: FEATURES + ABOUT */
 
     .section {
-      margin-bottom: 2rem;
+      margin-bottom: 2.1rem;
     }
 
     .section-title-row {
@@ -466,7 +468,7 @@
     }
 
     .feature-card {
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.96);
       border-radius: 1rem;
       border: 1px solid var(--border);
       padding: 0.8rem 0.85rem 0.9rem;
@@ -499,7 +501,7 @@
     }
 
     .about-card {
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.96);
       border-radius: 1rem;
       border: 1px solid var(--border);
       padding: 1rem;
@@ -549,6 +551,7 @@
       color: var(--text);
     }
   </style>
+
 </head>
 <body>
   <div class="page">
