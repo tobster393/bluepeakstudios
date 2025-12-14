@@ -3,496 +3,251 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BluePeak Studios Ltd – Apps & Games</title>
+  <title>BluePeak Studios Ltd – Misheard Mayhem</title>
+
+  <!-- SEO -->
+  <meta name="description" content="BluePeak Studios is a UK indie studio making small, social-first mobile apps & games. Current focus: Misheard Mayhem — a hilarious say-it-out-loud misheard phrase party game." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:title" content="BluePeak Studios – Misheard Mayhem" />
+  <meta property="og:description" content="A say-it-out-loud party game where nonsense secretly sounds like real phrases, movies, and songs." />
+  <meta property="og:type" content="website" />
 
   <style>
-    :root {
-      --bg: #020617;
-      --card: #020c1a;
-      --accent: #14b8a6;
-      --accent-soft: rgba(20, 184, 166, 0.16);
-      --accent-strong: #2dd4bf;
-      --text: #f9fafb;
-      --muted: #94a3b8;
-      --border: #1e293b;
+    :root{
+      --bg:#020617;
+      --panel:#020c1a;
+      --panel2:rgba(15,23,42,.94);
+      --accent:#14b8a6;
+      --accent2:#22d3ee;
+      --text:#f9fafb;
+      --muted:#94a3b8;
+      --border:#1e293b;
+      --shadow: 0 26px 70px rgba(8,47,73,.65);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background: radial-gradient(circle at 20% -10%, rgba(20,184,166,.18), transparent 40%),
+                  radial-gradient(circle at 90% 0%, rgba(34,211,238,.14), transparent 40%),
+                  var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+    .page{max-width:1100px;margin:0 auto;padding:0 clamp(1.1rem,4vw,2.5rem) 2.5rem}
+
+    /* Header */
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+      padding: .9rem 0 1.2rem;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(2,6,23,.55);
+      border-bottom: 1px solid rgba(30,41,59,.35);
+      z-index: 10;
+    }
+    .brand{display:flex;align-items:center;gap:.85rem}
+    .logo{
+      width:44px;height:44px;border-radius:999px;
+      background: radial-gradient(circle at 30% 20%, var(--accent2), #0d9488);
+      display:grid;place-items:center;
+      font-weight:900;font-size:1.05rem;color:#022c22;
+      box-shadow: 0 0 0 2px rgba(45,212,191,.35), 0 16px 40px rgba(8,47,73,.7);
+    }
+    .brand-text{display:flex;flex-direction:column;gap:.15rem}
+    .brand-name{font-weight:650;letter-spacing:.06em;text-transform:uppercase;font-size:.9rem}
+    .brand-tagline{font-size:.78rem;color:var(--muted)}
+    nav{display:flex;gap:.6rem;flex-wrap:wrap;font-size:.9rem}
+    nav a{
+      padding:.35rem .85rem;border-radius:999px;
+      border:1px solid transparent;color:var(--muted);
+      transition: all .18s ease;
+    }
+    nav a:hover{border-color:var(--accent);color:var(--text);background:rgba(20,184,166,.12)}
+    @media (max-width:768px){
+      header{flex-direction:column;align-items:flex-start}
+      nav{width:100%}
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Sections */
+    section{margin-top:1.6rem}
+    .section-header{display:flex;justify-content:space-between;align-items:baseline;gap:.9rem;margin-bottom:.9rem}
+    .section-title{font-size:1.1rem;font-weight:650}
+    .section-sub{font-size:.86rem;color:var(--muted);max-width:42rem}
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #020617; /* solid dark – no light band at top */
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 clamp(1.2rem, 4vw, 2.5rem) 2.5rem; /* no top padding */
-    }
-
-    /* HEADER */
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.25rem;
-      padding-top: 0.6rem;
-      padding-bottom: 1.3rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-
-    .logo-circle {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #22d3ee, #0d9488);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.15rem;
-      color: #022c22;
-      box-shadow:
-        0 0 0 2px rgba(45, 212, 191, 0.4),
-        0 16px 40px rgba(8, 47, 73, 0.7);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
-
-    .brand-name {
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    .brand-tagline {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    nav {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      font-size: 0.9rem;
-    }
-
-    nav a {
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      color: var(--muted);
-      transition: all 0.18s ease;
-    }
-
-    nav a:hover {
-      border-color: var(--accent);
-      color: var(--text);
-      background: rgba(20, 184, 166, 0.15);
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        width: 100%;
-      }
-    }
-
-    /* SECTIONS */
-
-    section {
-      margin-bottom: 2.4rem;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 0.9rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .section-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-
-    .section-sub {
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    /* HERO (COMPANY-FOCUSED) */
-
-    .hero {
-      background:
-        radial-gradient(circle at 0 0, rgba(20, 184, 166, 0.16), transparent 55%),
-        radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.16), transparent 55%),
-        var(--card);
-      border-radius: 1.5rem;
-      border: 1px solid var(--border);
-      padding: 1.7rem 1.6rem 1.5rem;
-      box-shadow: 0 26px 70px rgba(8, 47, 73, 0.7);
-    }
-
-    .hero-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.7rem;
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 0.78rem;
-      color: #e5e7eb;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2rem, 3.3vw, 2.7rem);
-      line-height: 1.15;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-title span {
-      background: linear-gradient(120deg, #22d3ee, #2dd4bf, #38bdf8);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-text {
-      font-size: 0.95rem;
-      color: var(--muted);
-      max-width: 38rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-bullets {
-      list-style: none;
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 1.1rem;
-    }
-
-    .hero-bullets li {
-      display: flex;
-      gap: 0.5rem;
-      align-items: flex-start;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-bullets li::before {
-      content: "◆";
-      font-size: 0.7rem;
-      color: var(--accent);
-      margin-top: 0.2rem;
-    }
-
-    .hero-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-      margin-bottom: 0.6rem;
-    }
-
-    .btn-primary {
-      border-radius: 999px;
-      padding: 0.65rem 1.4rem;
-      border: none;
-      outline: none;
-      background: linear-gradient(135deg, #22d3ee, #0f766e);
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #022c22;
-      box-shadow: 0 14px 40px rgba(8, 47, 73, 0.8);
-      cursor: default;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.96);
-      padding: 0.55rem 1.1rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .hero-note {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    /* APPS SECTION */
-
-    .apps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    @media (max-width: 900px) {
-      .apps-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .apps-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .app-card {
-      background:
-        linear-gradient(to bottom right, rgba(20, 184, 166, 0.16), rgba(15, 23, 42, 0.96)),
-        var(--card);
-      border-radius: 1rem;
-      border: 1px solid var(--border);
-      padding: 1rem;
-      box-shadow: 0 20px 40px rgba(8, 47, 73, 0.6);
-      font-size: 0.88rem;
-      color: var(--muted);
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-
-    .app-pill {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 0.18rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: #e5e7eb;
-    }
-
-    .app-title {
-      font-weight: 600;
-      color: #e5e7eb;
-    }
-
-    .app-footer-link {
-      margin-top: 0.4rem;
-      font-size: 0.8rem;
-      color: var(--accent-strong);
-    }
-
-    /* MISHEARD DETAIL SECTION */
-
-    .detail-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
-      gap: 1.6rem;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 880px) {
-      .detail-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .detail-card {
-      background: var(--card);
-      border-radius: 1.3rem;
-      border: 1px solid var(--border);
-      padding: 1.25rem 1.2rem 1.3rem;
-      box-shadow: 0 18px 50px rgba(8, 47, 73, 0.7);
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .detail-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #e5e7eb;
-    }
-
-    .detail-list {
-      margin-top: 0.4rem;
-      padding-left: 1.1rem;
-      font-size: 0.88rem;
-    }
-
-    .detail-list li {
-      margin-bottom: 0.25rem;
-    }
-
-    .phone-frame {
-      border-radius: 1.9rem;
-      border: 1px solid rgba(15, 23, 42, 1);
-      background:
-        radial-gradient(circle at top, rgba(34, 211, 238, 0.15), transparent 50%),
-        #020617;
-      padding: 0.7rem;
-      width: 100%;
-      max-width: 290px;
-      margin: 0 auto;
-      box-shadow:
-        0 18px 60px rgba(8, 47, 73, 0.9);
-    }
-
-    .phone-inner {
-      border-radius: 1.4rem;
-      background:
-        linear-gradient(135deg, #020617, #0f172a);
-      border: 1px solid #020617;
-      height: 420px;
-      padding: 0.8rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      font-size: 0.8rem;
-    }
-
-    .phone-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--muted);
-      font-size: 0.75rem;
-    }
-
-    .phone-tagline {
-      font-size: 0.85rem;
-      color: var(--text);
-      margin-top: 0.45rem;
-    }
-
-    .phone-card {
+    /* Hero */
+    .hero{
       margin-top: 1rem;
-      border-radius: 0.9rem;
+      border-radius: calc(var(--radius) + 8px);
+      border:1px solid var(--border);
       background:
-        linear-gradient(135deg, rgba(20, 184, 166, 0.16), rgba(56, 189, 248, 0.12));
-      border: 1px solid rgba(15, 23, 42, 0.9);
-      padding: 0.7rem;
+        radial-gradient(circle at 0 0, rgba(20,184,166,.20), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(56,189,248,.16), transparent 55%),
+        var(--panel);
+      box-shadow: var(--shadow);
+      padding: 1.8rem 1.6rem 1.5rem;
+      overflow:hidden;
+      position:relative;
     }
-
-    .phone-phrase {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
+    .hero-chip{
+      display:inline-flex;align-items:center;gap:.5rem;
+      padding:.28rem .75rem;border-radius:999px;
+      background: rgba(15,23,42,.88);
+      border:1px solid rgba(148,163,184,.45);
+      font-size:.78rem;color:#e5e7eb;
+      margin-bottom:.9rem;
     }
-
-    .phone-answer-label {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-bottom: 0.1rem;
+    .hero-title{
+      font-size: clamp(2.05rem, 3.4vw, 2.9rem);
+      line-height:1.1;
+      margin-bottom:.75rem;
+      letter-spacing:-.02em;
     }
-
-    .phone-footer-hints {
-      font-size: 0.76rem;
-      color: var(--muted);
-      margin-top: 0.9rem;
+    .hero-title span{
+      background: linear-gradient(120deg, var(--accent2), #2dd4bf, #38bdf8);
+      -webkit-background-clip:text;
+      color:transparent;
     }
+    .hero-text{font-size:.98rem;color:var(--muted);max-width:42rem;margin-bottom:1.15rem}
+    .hero-bullets{list-style:none;color:var(--muted);font-size:.9rem;margin-bottom:1.1rem}
+    .hero-bullets li{display:flex;gap:.55rem;align-items:flex-start;margin-bottom:.45rem}
+    .hero-bullets li::before{content:"◆";font-size:.7rem;color:var(--accent);margin-top:.22rem}
 
-    /* ABOUT COMPANY */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
-      gap: 1.4rem;
-    }
-
-    @media (max-width: 880px) {
-      .about-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .about-card {
-      background: rgba(15, 23, 42, 0.96);
-      border-radius: 1.1rem;
-      border: 1px solid var(--border);
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-      box-shadow: 0 12px 35px rgba(8, 47, 73, 0.7);
-    }
-
-    .about-card strong {
-      color: #e5e7eb;
-    }
-
-    .about-list {
-      padding-left: 1.1rem;
-      margin-top: 0.4rem;
-      font-size: 0.88rem;
-    }
-
-    .about-list li {
-      margin-bottom: 0.25rem;
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding-top: 1rem;
-      margin-top: 1.6rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 2rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a:hover {
+    .cta-row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:.45rem;
+      border-radius:999px;
+      padding:.7rem 1.25rem;
+      border:1px solid rgba(148,163,184,.55);
+      background: rgba(15,23,42,.92);
       color: var(--text);
+      font-weight:650;
+      font-size:.9rem;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
     }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(20,184,166,.8); background: rgba(20,184,166,.10)}
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--accent2), #0f766e);
+      color:#022c22;
+      box-shadow: 0 14px 40px rgba(8,47,73,.75);
+    }
+    .hero-note{margin-top:.85rem;font-size:.8rem;color:var(--muted)}
+    .hero-note strong{color:#e5e7eb}
+
+    /* Cards / grids */
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+    @media (max-width:900px){.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:640px){.grid-3{grid-template-columns:1fr}}
+
+    .card{
+      background: linear-gradient(to bottom right, rgba(20,184,166,.14), rgba(15,23,42,.96)),
+                  var(--panel);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.05rem;
+      box-shadow: 0 20px 40px rgba(8,47,73,.55);
+      color: var(--muted);
+      font-size:.9rem;
+    }
+    .pill{
+      display:inline-block;
+      font-size:.75rem;
+      padding:.2rem .6rem;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.45);
+      color:#e5e7eb;
+      margin-bottom:.6rem;
+    }
+    .card h3{color:#e5e7eb;font-size:1.02rem;margin-bottom:.35rem}
+    .card p{line-height:1.45}
+    .card .link{display:inline-block;margin-top:.6rem;color:#2dd4bf;font-weight:600;font-size:.86rem}
+
+    /* Misheard layout */
+    .detail-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:1.3rem;align-items:start}
+    @media (max-width:880px){.detail-layout{grid-template-columns:1fr}}
+    .list{margin-top:.35rem;padding-left:1.1rem}
+    .list li{margin:.3rem 0}
+
+    /* Phone mock */
+    .phone-frame{
+      border-radius: 28px;
+      border: 1px solid rgba(148,163,184,.25);
+      background: radial-gradient(circle at top, rgba(34,211,238,.14), transparent 55%), #020617;
+      padding:.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+      box-shadow: 0 18px 60px rgba(8,47,73,.85);
+    }
+    .phone-inner{
+      border-radius: 22px;
+      border: 1px solid rgba(2,6,23,.9);
+      background: linear-gradient(135deg, #020617, #0f172a);
+      height: 440px;
+      padding: .85rem;
+      display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .phone-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.78rem}
+    .phone-title{margin-top:.5rem;color:var(--text);font-weight:700;font-size:.95rem}
+    .phone-card{
+      margin-top:.9rem;border-radius:16px;
+      background: linear-gradient(135deg, rgba(20,184,166,.16), rgba(56,189,248,.12));
+      border: 1px solid rgba(30,41,59,.55);
+      padding:.75rem;
+    }
+    .phrase{font-size:1rem;font-weight:800;margin-bottom:.35rem;color:#e5e7eb}
+    .label{font-size:.78rem;color:var(--muted);margin-bottom:.15rem}
+    .foot{color:var(--muted);font-size:.78rem;margin-top:.85rem;line-height:1.5}
+
+    /* FAQ */
+    details{
+      border:1px solid rgba(30,41,59,.7);
+      border-radius: 14px;
+      background: rgba(15,23,42,.78);
+      padding: .85rem .95rem;
+    }
+    details + details{margin-top:.7rem}
+    summary{cursor:pointer;color:#e5e7eb;font-weight:650}
+    summary::-webkit-details-marker{display:none}
+    .faq-text{margin-top:.55rem;color:var(--muted);line-height:1.5}
+
+    /* Footer */
+    footer{
+      border-top:1px solid rgba(30,41,59,.8);
+      margin-top:2rem;
+      padding-top:1.1rem;
+      padding-bottom:2rem;
+      color:var(--muted);
+      font-size:.82rem;
+      display:flex;flex-wrap:wrap;gap:.8rem;justify-content:space-between;align-items:center;
+    }
+    .footer-links{display:flex;gap:.95rem;flex-wrap:wrap}
+    .footer-links a:hover{color:var(--text)}
   </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"BluePeak Studios Ltd",
+    "email":"support@bluepeakstudios.co.uk",
+    "url":"/",
+    "description":"UK indie studio making small, social-first mobile apps & games. Current focus: Misheard Mayhem."
+  }
+  </script>
 </head>
 
 <body>
   <div class="page">
-    <!-- HEADER -->
+
     <header>
       <div class="brand">
-        <div class="logo-circle">B</div>
+        <div class="logo">B</div>
         <div class="brand-text">
           <div class="brand-name">BluePeak Studios Ltd</div>
           <div class="brand-tagline">Independent mobile apps & games · UK</div>
@@ -501,174 +256,151 @@
       <nav>
         <a href="#company">Company</a>
         <a href="#apps">Apps</a>
-        <a href="#misheard">Misheard Phrases</a>
+        <a href="#mayhem">Misheard Mayhem</a>
+        <a href="#faq">FAQ</a>
       </nav>
     </header>
 
-    <!-- COMPANY HERO -->
+    <!-- HERO -->
     <section id="company" class="hero">
-      <div class="hero-chip">
-        <span>✨</span>
-        <span>Building small, social-first experiences</span>
-      </div>
+      <div class="hero-chip">✨ <span>Building small, social-first experiences</span></div>
 
       <h1 class="hero-title">
-        BluePeak Studios makes <span>simple, social apps</span> people actually use.
+        BluePeak Studios makes <span>simple games</span> people actually play.
       </h1>
 
       <p class="hero-text">
-        BluePeak Studios Ltd is a UK-based indie studio focused on lightweight,
-        fun apps and games that fit into real life – not the other way around.
-        We care about experiences that are easy to pick up, friendly to play in a
-        group, and honest about how they work.
+        We’re a UK-based indie studio focused on lightweight, fun apps and party games
+        that fit into real life — not the other way around. Quick rounds, friendly vibes,
+        and clear, honest design.
       </p>
 
       <ul class="hero-bullets">
-        <li>Small studio, tight feedback loop, fast iterations.</li>
-        <li>Mobile-first design, built natively for iOS and beyond.</li>
-        <li>Respect for players – no dark patterns, no aggressive data grabs.</li>
+        <li>Small studio, fast updates, tight feedback loop.</li>
+        <li>Mobile-first design (iOS first, more platforms later).</li>
+        <li>Respect for players: no accounts required, no creepy tracking.</li>
       </ul>
 
-      <div class="hero-cta-row">
-        <button class="btn-primary" type="button">
-          Current focus: Misheard Phrases
-        </button>
-        <a class="btn-secondary" href="#apps">
-          View our apps
-        </a>
+      <div class="cta-row">
+        <a class="btn primary" href="#mayhem">🎉 Current focus: Misheard Mayhem</a>
+        <a class="btn" href="mailto:support@bluepeakstudios.co.uk">✉️ Email support</a>
+        <a class="btn" href="#apps">📱 View apps</a>
       </div>
 
       <p class="hero-note">
-        For support or business enquiries, email
-        <strong>support@bluepeakstudios.co.uk</strong>.
+        For support or business enquiries: <strong>support@bluepeakstudios.co.uk</strong>
       </p>
     </section>
 
-    <!-- APPS SECTION -->
+    <!-- APPS -->
     <section id="apps">
       <div class="section-header">
         <h2 class="section-title">Our apps</h2>
-        <p class="section-sub">
-          A growing library of small, focused projects. Here’s what we’re working on.
-        </p>
+        <p class="section-sub">A growing library of small, focused projects.</p>
       </div>
 
-      <div class="apps-grid">
-        <!-- Misheard Phrases app card -->
-        <article class="app-card">
-          <span class="app-pill">Party Game · In Development</span>
-          <div class="app-title">Misheard Phrases</div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="pill">Party Game · In Development</div>
+          <h3>Misheard Mayhem</h3>
           <p>
-            A misheard phrase game where written nonsense secretly sounds like
-            real phrases, movies, or songs when said out loud. Best played with
-            friends around one phone.
+            A say-it-out-loud party game where written nonsense secretly sounds like real
+            phrases, movies, or songs. Best played with friends around one phone.
           </p>
-          <p class="app-footer-link">
-            <a href="#misheard">View details →</a>
-          </p>
+          <a class="link" href="#mayhem">View details →</a>
         </article>
 
-        <!-- Future app placeholder -->
-        <article class="app-card">
-          <span class="app-pill">Upcoming</span>
-          <div class="app-title">Next project</div>
+        <article class="card">
+          <div class="pill">Upcoming</div>
+          <h3>Next project</h3>
           <p>
-            BluePeak is actively prototyping future ideas including tools,
-            social apps, and more game concepts. This section will update as
-            new projects move into development.
+            BluePeak is prototyping future ideas including social apps, tools, and more game concepts.
+            This section will update as new projects move into development.
           </p>
-          <p class="app-footer-link">
-            Check back soon.
-          </p>
+          <span class="link" style="color:var(--muted);font-weight:600">Check back soon.</span>
         </article>
 
-        <!-- Company tools / internal apps -->
-        <article class="app-card">
-          <span class="app-pill">Studio</span>
-          <div class="app-title">Internal tools</div>
+        <article class="card">
+          <div class="pill">Studio</div>
+          <h3>Internal tools</h3>
           <p>
-            Behind the scenes, we’re building small utilities and systems to
-            improve how we design, test, and deploy our apps. Some may be
-            released publicly in the future if they’re useful enough.
+            Behind the scenes, we build small utilities to improve how we design, test, and ship.
+            If anything becomes genuinely useful, we may release it publicly.
           </p>
-          <p class="app-footer-link">
-            Want to collaborate? Email us.
-          </p>
+          <a class="link" href="mailto:support@bluepeakstudios.co.uk">Want to collaborate? →</a>
         </article>
       </div>
     </section>
 
-    <!-- MISHEARD PHRASES DETAIL -->
-    <section id="misheard">
+    <!-- MISHEARD MAYHEM -->
+    <section id="mayhem">
       <div class="section-header">
-        <h2 class="section-title">Misheard Phrases – app overview</h2>
+        <h2 class="section-title">Misheard Mayhem – app overview</h2>
         <p class="section-sub">
-          A say-what-you-see style party game for nights in, pre-drinks, and group calls.
+          A “say what you see” style party game for nights in, pre-drinks, and group calls.
         </p>
       </div>
 
       <div class="detail-layout">
-        <!-- Text side -->
-        <div class="detail-card">
-          <div class="detail-title">What it is</div>
+        <div class="card" style="background: var(--panel);">
+          <h3>What it is</h3>
           <p>
-            Misheard Phrases is a misheard-phrase guessing game that lives on
-            your phone but feels like a card game. Each card shows a phrase that
-            looks like nonsense, but when you sound it out, it becomes a real
-            word, phrase, movie, song or saying.
+            Misheard Mayhem is a misheard-phrase guessing game that feels like a card game.
+            Each “card” looks like nonsense — until you read it out loud.
           </p>
 
-          <div class="detail-title" style="margin-top: 0.9rem;">How it plays</div>
-          <ul class="detail-list">
+          <h3 style="margin-top:.9rem;">How it plays</h3>
+          <ul class="list">
             <li>Pick a category and difficulty.</li>
-            <li>Read the scrambled phrase on screen out loud.</li>
+            <li>Read the scrambled phrase out loud.</li>
             <li>Listen for the real phrase hidden in the sounds.</li>
-            <li>Shout it out when it clicks – then move to the next one.</li>
+            <li>Score a point, then move to the next card.</li>
           </ul>
 
-          <div class="detail-title" style="margin-top: 0.9rem;">Key features</div>
-          <ul class="detail-list">
+          <h3 style="margin-top:.9rem;">Key features</h3>
+          <ul class="list">
             <li>Multiple modes: solo, timed, and friends/party modes.</li>
-            <li>Different categories like common phrases, movies, songs, and more.</li>
-            <li>Built to run on a single device – no sign-ups, no accounts.</li>
-            <li>Designed for quick rounds that fit into real life.</li>
+            <li>Categories like common phrases, movies, songs, and more.</li>
+            <li>No accounts required — built for quick local play.</li>
+            <li>Frequent updates planned with new decks + modes.</li>
           </ul>
 
-          <p style="margin-top: 0.9rem; font-size: 0.86rem;">
-            When Misheard Phrases launches on the App Store, this section will be
-            updated with a direct download link, screenshots, and a full support FAQ.
+          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem">
+            <a class="btn" href="mailto:support@bluepeakstudios.co.uk?subject=Misheard%20Mayhem%20Feedback">💡 Suggest a category</a>
+            <a class="btn" href="mailto:support@bluepeakstudios.co.uk?subject=Misheard%20Mayhem%20Bug%20Report">🐛 Report a bug</a>
+          </div>
+
+          <p style="margin-top:.9rem;font-size:.86rem;color:var(--muted);">
+            When Misheard Mayhem launches, we’ll add store links, screenshots, and a full support page.
           </p>
         </div>
 
-        <!-- Phone mockup side -->
-        <div class="detail-card" style="display:flex;justify-content:center;align-items:center;">
+        <div class="card" style="background: var(--panel); display:flex; justify-content:center;">
           <div class="phone-frame">
             <div class="phone-inner">
               <div>
-                <div class="phone-header">
-                  <span>Misheard Phrases</span>
+                <div class="phone-top">
+                  <span>Misheard Mayhem</span>
                   <span>🔊 Say it out loud</span>
                 </div>
-                <p class="phone-tagline">
-                  “What you read isn’t what you hear…”
-                </p>
+                <div class="phone-title">“What you read isn’t what you hear…”</div>
 
                 <div class="phone-card">
-                  <div class="phone-phrase">Reed butt wean dull lions</div>
-                  <div class="phone-answer-label">Actual phrase</div>
-                  <div>Read between the lines</div>
+                  <div class="phrase">Reed butt wean dull lions</div>
+                  <div class="label">Actual phrase</div>
+                  <div style="color:#e5e7eb;font-weight:650;">Read between the lines</div>
                 </div>
 
-                <div class="phone-card" style="margin-top:0.75rem;">
-                  <div class="phone-phrase">Darn zinc ween</div>
-                  <div class="phone-answer-label">Actual phrase</div>
-                  <div>Dancing Queen</div>
+                <div class="phone-card" style="margin-top:.75rem;">
+                  <div class="phrase">Darn zinc ween</div>
+                  <div class="label">Actual phrase</div>
+                  <div style="color:#e5e7eb;font-weight:650;">Dancing Queen</div>
                 </div>
               </div>
 
-              <div class="phone-footer-hints">
+              <div class="foot">
                 • Play with friends around one phone<br />
-                • New categories and cards planned for future updates
+                • New decks + difficulties coming soon
               </div>
             </div>
           </div>
@@ -676,55 +408,29 @@
       </div>
     </section>
 
-    <!-- ABOUT STUDIO -->
-    <section id="about">
+    <!-- FAQ -->
+    <section id="faq">
       <div class="section-header">
-        <h2 class="section-title">About BluePeak Studios</h2>
-        <p class="section-sub">
-          A small studio with a focus on honest, fun, social experiences.
-        </p>
+        <h2 class="section-title">FAQ</h2>
+        <p class="section-sub">Quick answers for players, parents, and reviewers.</p>
       </div>
 
-      <div class="about-grid">
-        <div class="about-card">
-          <p>
-            <strong>BluePeak Studios Ltd</strong> is an independent studio based
-            in the UK. The aim is to create apps and games that are easy to
-            understand, fun to share, and respectful of players' time and data.
-          </p>
-          <ul class="about-list">
-            <li>Mobile-first design for iOS (and later other platforms).</li>
-            <li>Focus on local and social play, not endless grind.</li>
-            <li>Built by a small, hands-on team.</li>
-          </ul>
-        </div>
+      <details>
+        <summary>Do I need an account to play?</summary>
+        <div class="faq-text">No — Misheard Mayhem is designed for quick local play with no sign-ups.</div>
+      </details>
 
-        <div class="about-card">
-          <p>
-            If you’d like to get in touch about:
-          </p>
-          <ul class="about-list">
-            <li>Support or bug reports for Misheard Phrases.</li>
-            <li>Ideas for new categories or features.</li>
-            <li>Press, creator, or collaboration enquiries.</li>
-          </ul>
-          <p style="margin-top:0.45rem;">
-            You can reach us at:
-          </p>
-          <p style="margin-top:0.25rem;">
-            <strong>Email:</strong>
-            <a href="mailto:support@bluepeakstudios.co.uk">
-              support@bluepeakstudios.co.uk
-            </a>
-          </p>
-          <p style="margin-top:0.4rem;">
-            We aim to respond within 1–2 business days.
-          </p>
-        </div>
-      </div>
+      <details>
+        <summary>Does the game collect personal data?</summary>
+        <div class="faq-text">The goal is to keep things privacy-friendly. If analytics are used, they’ll be minimal and clearly explained in the privacy policy.</div>
+      </details>
+
+      <details>
+        <summary>How do I get support or report a bug?</summary>
+        <div class="faq-text">Email <strong>support@bluepeakstudios.co.uk</strong> with your device model + what happened.</div>
+      </details>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <div>© <span id="year"></span> BluePeak Studios Ltd. All rights reserved.</div>
       <div class="footer-links">
